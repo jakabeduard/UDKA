@@ -37,14 +37,20 @@ entity spi is
     Port ( clk:in STD_LOGIC;
            reset: in STD_LOGIC;
            start : in STD_LOGIC;
-           cs : in STD_LOGIC;
-           reg_bh : in STD_LOGIC;
-           reg_status : in STD_LOGIC;
-           reg_cs : in STD_LOGIC;
-           reg_sclk : in STD_LOGIC;
+           cs : out STD_LOGIC;
            src_clk : out STD_LOGIC;
-           miso1 : in STD_LOGIC;
-           miso2 : in STD_LOGIC);
+           
+      
+           miso1 : in std_logic_vector(15 downto 0);
+           miso2 : in std_logic_vector(15 downto 0);
+           
+           adatki1 : out std_logic_vector(15 downto 0);
+           adatki2 : out std_logic_vector(15 downto 0);
+           
+          intout : out STD_LOGIC); --intout out  nem megy  az nelkul 
+           
+           
+           
            
 end spi;
 
@@ -64,11 +70,18 @@ signal RI, RI_next : std_logic_vector(15 downto 0);
 signal Rk, Rk_next : std_logic_vector(15 downto 0);
 signal RBE1, RBE_next1 : std_logic_vector(15 downto 0);
 signal RBE2, RBE_next2 : std_logic_vector(15 downto 0);
-signal R_Status, R_Status_next : std_logic_vector(15 downto 0);
-signal R_CS, R_CS_next : std_logic_vector(15 downto 0);
-signal R_SCLK, R_SCLK_next : std_logic_vector(15 downto 0);
-signal R_MOSI1, R_MOSI_next1 : std_logic_vector(15 downto 0);
-signal R_MOSI2, R_MOSI_next2 : std_logic_vector(15 downto 0);
+
+
+signal R_Status, R_Status_next : std_logic;
+signal R_CS, R_CS_next : std_logic;
+signal R_SCLK, R_SCLK_next : std_logic;
+signal R_Delay, R_Delay_next : std_logic;
+signal R_intout, R_intout_next : std_logic;
+
+
+
+--signal R_MOSI1, R_MOSI_next1 : std_logic_vector(15 downto 0);
+--signal R_MOSI2, R_MOSI_next2 : std_logic_vector(15 downto 0);
 
 begin
 
@@ -229,7 +242,7 @@ with akt_all select
                   '0' when others;          
                   
  with akt_all select
-   R_SCLK_next1 <=  
+   R_SCLK_next <=  
                   '0' when W3,
                   '0' when INIT4,
                   '-1' when INIT5,
@@ -237,21 +250,6 @@ with akt_all select
                   '0' WHEN W5, 
                   '1' when others;               
               
-  with akt_all select
-   R_SCLK_next2 <=  
-                  '0' when W3,
-                  '0' when INIT4,
-                  '-1' when INIT5,
-                  '0' when INIT6,
-                  '0' WHEN W5,
-                  '1' when others;  
-              
-                  
-
-                  
-
-
-
 
 
 
