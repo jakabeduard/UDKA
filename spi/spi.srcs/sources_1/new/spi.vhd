@@ -47,7 +47,7 @@ entity spi is
            adatki1 : out std_logic_vector(15 downto 0);
            adatki2 : out std_logic_vector(15 downto 0);
            
-          intout : out STD_LOGIC); --intout out  nem megy  az nelkul 
+          ready : out STD_LOGIC); --intout out  nem megy  az nelkul 
            
            
            
@@ -76,7 +76,7 @@ signal R_Status, R_Status_next : std_logic;
 signal R_CS, R_CS_next : std_logic;
 signal R_SCLK, R_SCLK_next : std_logic;
 signal R_Delay, R_Delay_next : std_logic;
-signal R_intout, R_intout_next : std_logic;
+signal R_Ready, R_Ready_next : std_logic;
 
 
 
@@ -213,32 +213,20 @@ with akt_all select
 
 
 
-with akt_all select
-       R_MOSI_next1 <=  x"0000" when RDY,
-                   RBE2(14 downto 0)& R_MOSI2 when INIT4,
-                   RBE2 when others; 
-                   
-
-
-with akt_all select
-       R_MOSI_next2 <=  x"0000" when RDY,
-                   RBE2(14 downto 0)& R_MOSI2 when INIT4,
-                   RBE2 when others;       
+    
                    
                
 with akt_all select
    R_Status_next <= 
-               R_Status when RDY,
-                    '1' when VEGE,
-                    '0' when others;
+               '1' when RDY,
+               '0' when VEGE;
                   
  
  with akt_all select
-   R_CS_next <=   '1' when INIT1,
+   R_CS_next <=   '1' when RDY,
+                  '1' when INIT1,
                   '1' when W1,
-                  '1' when INIT6,
-                  '1' when W5,
-                  '1' WHEN VEGE,
+                  '1' when VEGE,
                   '0' when others;          
                   
  with akt_all select
