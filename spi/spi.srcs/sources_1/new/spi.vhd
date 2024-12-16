@@ -64,7 +64,7 @@ constant N1 : std_logic_vector(3 downto 0) := "0011";
 constant N2 : std_logic_vector(3 downto 0) := "0011";
 constant N3 : std_logic_vector(3 downto 0) := "0011";
 constant N4 : std_logic_vector(3 downto 0) := "0011";
-constant P : std_logic_vector(15 downto 0):="0011";
+constant P : std_logic_vector(15 downto 0):="0000";
 
 
 signal RI, RI_next : std_logic_vector(15 downto 0);
