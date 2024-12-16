@@ -23,6 +23,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_SIGNED.ALL;
 USE IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -201,14 +202,14 @@ with akt_all select
                
                
 with akt_all select
-        RBE_next1<=  x"0000" when RDY,
-                   RBE1(14 downto 0)& R_MOSI1 when INIT4,
-                   RBE1 when others;  
+       RBE_next1 <= x"0000" when RDY,
+                   RBE1(14 downto 0)& miso1 when INIT4,
+                   RBE1 when others;    
                
                
 with akt_all select
         RBE_next2<=  x"0000" when RDY,
-                   RBE2(14 downto 0)& R_MOSI2 when INIT4,
+                   RBE2(14 downto 0)& miso2 when INIT4,
                    RBE2 when others;    
 
 
@@ -226,6 +227,8 @@ with akt_all select
    R_CS_next <=   '1' when RDY,
                   '1' when INIT1,
                   '1' when W1,
+                  '1' when INIT6,
+                  '1' when W5,
                   '1' when VEGE,
                   '0' when others;          
                   
@@ -233,13 +236,25 @@ with akt_all select
    R_SCLK_next <=  
                   '0' when W3,
                   '0' when INIT4,
-                  '-1' when INIT5,
                   '0' when INIT6,
                   '0' WHEN W5, 
                   '1' when others;               
               
 
-
-
+regiszterek: process (clk)
+begin
+    if clk'event and clk='1' then
+    Ri <= Ri_next;
+    Rk <= Rk_next;
+    RBE1 <= RBE_next1;
+    RBE2 <= RBE_next2;
+    
+    R_Status <= R_Status_next;
+    R_CS <= R_CS_next;
+    R_SCLK <= R_SCLK_next;
+    R_Delay <= R_Delay_next;
+    R_Ready <= R_Ready_next;
+    end if;
+end process regiszterek;
 
 end Behavioral;
