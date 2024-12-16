@@ -66,6 +66,7 @@ constant N3 : std_logic_vector(3 downto 0) := "0011";
 constant N4 : std_logic_vector(3 downto 0) := "0011";
 constant P : std_logic_vector(15 downto 0):="0000";
 
+signal adatki1, adatki2 : STD_LOGIC_VECTOR(15 downto 0);
 
 signal RI, RI_next : std_logic_vector(15 downto 0);
 signal Rk, Rk_next : std_logic_vector(15 downto 0);
