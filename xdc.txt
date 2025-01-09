@@ -1,0 +1,47 @@
+-- Master XDC File for Nexys A7 with 7-segment display
+
+## Clock Signal
+set_property -dict { PACKAGE_PIN E3   IOSTANDARD LVCMOS33 } [get_ports clk]
+create_clock -add -name sys_clk_pin -period 10.00 [get_ports clk]
+
+## Reset Signal
+set_property -dict { PACKAGE_PIN C12  IOSTANDARD LVCMOS33 } [get_ports rst]
+
+## Start Signal
+set_property -dict { PACKAGE_PIN D12  IOSTANDARD LVCMOS33 } [get_ports start]
+
+## Stop Signal
+set_property -dict { PACKAGE_PIN E16  IOSTANDARD LVCMOS33 } [get_ports stop]
+
+## SPI Signals
+set_property -dict { PACKAGE_PIN F13  IOSTANDARD LVCMOS33 } [get_ports sclk]
+set_property -dict { PACKAGE_PIN G13  IOSTANDARD LVCMOS33 } [get_ports cs]
+set_property -dict { PACKAGE_PIN H16  IOSTANDARD LVCMOS33 } [get_ports mosi1]
+set_property -dict { PACKAGE_PIN J16  IOSTANDARD LVCMOS33 } [get_ports mosi2]
+set_property -dict { PACKAGE_PIN K16  IOSTANDARD LVCMOS33 } [get_ports miso]
+
+## 7-Segment Display Pins
+set_property -dict { PACKAGE_PIN U2   IOSTANDARD LVCMOS33 } [get_ports {seg_data[0]}]
+set_property -dict { PACKAGE_PIN U3   IOSTANDARD LVCMOS33 } [get_ports {seg_data[1]}]
+set_property -dict { PACKAGE_PIN U4   IOSTANDARD LVCMOS33 } [get_ports {seg_data[2]}]
+set_property -dict { PACKAGE_PIN V4   IOSTANDARD LVCMOS33 } [get_ports {seg_data[3]}]
+set_property -dict { PACKAGE_PIN V5   IOSTANDARD LVCMOS33 } [get_ports {seg_data[4]}]
+set_property -dict { PACKAGE_PIN U5   IOSTANDARD LVCMOS33 } [get_ports {seg_data[5]}]
+set_property -dict { PACKAGE_PIN V6   IOSTANDARD LVCMOS33 } [get_ports {seg_data[6]}]
+
+## Common Anode Control for Display Digits
+set_property -dict { PACKAGE_PIN W1   IOSTANDARD LVCMOS33 } [get_ports {digit_select[0]}]
+set_property -dict { PACKAGE_PIN W2   IOSTANDARD LVCMOS33 } [get_ports {digit_select[1]}]
+set_property -dict { PACKAGE_PIN W3   IOSTANDARD LVCMOS33 } [get_ports {digit_select[2]}]
+set_property -dict { PACKAGE_PIN W4   IOSTANDARD LVCMOS33 } [get_ports {digit_select[3]}]
+
+## Data Output Signals
+set_property -dict { PACKAGE_PIN L16  IOSTANDARD LVCMOS33 } [get_ports {data_out[0]}]
+set_property -dict { PACKAGE_PIN M16  IOSTANDARD LVCMOS33 } [get_ports {data_out[1]}]
+set_property -dict { PACKAGE_PIN N16  IOSTANDARD LVCMOS33 } [get_ports {data_out[2]}]
+set_property -dict { PACKAGE_PIN P16  IOSTANDARD LVCMOS33 } [get_ports {data_out[3]}]
+set_property -dict { PACKAGE_PIN R16  IOSTANDARD LVCMOS33 } [get_ports {data_out[4]}]
+set_property -dict { PACKAGE_PIN T16  IOSTANDARD LVCMOS33 } [get_ports {data_out[5]}]
+set_property -dict { PACKAGE_PIN U16  IOSTANDARD LVCMOS33 } [get_ports {data_out[6]}]
+set_property -dict { PACKAGE_PIN V16  IOSTANDARD LVCMOS33 } [get_ports {data_out[7]}]
+... 

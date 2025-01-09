@@ -4,6 +4,7 @@ Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 Running: D:/vivado/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot spi_adc_testbench_behav xil_defaultlib.spi_adc_testbench -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+WARNING: [VRFC 10-4940] 'seven_segment_decoder' remains a black box since it has no binding entity [D:/2024-2025/FPGA/UDKA/spi_chatgpt/spi_chatgpt.srcs/sim_1/new/spi_adc_testbench.vhd:64]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis

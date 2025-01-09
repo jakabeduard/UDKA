@@ -1,4 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/2024-2025/FPGA/UDKA/spi_chatgpt/spi_chatgpt.srcs/sources_1/new/spi_adc_reader.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'spi_adc_reader'
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/2024-2025/FPGA/UDKA/spi_chatgpt/spi_chatgpt.srcs/sim_1/new/spi_adc_testbench.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'spi_adc_testbench'

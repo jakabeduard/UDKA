@@ -1,4 +1,5 @@
--- Simulation testbench for SPI ADC Reader
+
+-- Simulation testbench for SPI ADC Reader with 7-segment display
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -23,6 +24,13 @@ architecture Behavioral of spi_adc_testbench is
         );
     end component;
 
+    component seven_segment_decoder is
+        Port (
+            bin_in  : in  STD_LOGIC_VECTOR(3 downto 0);
+            seg_out : out STD_LOGIC_VECTOR(6 downto 0)
+        );
+    end component;
+
     -- Signals for simulation
     signal clk      : STD_LOGIC := '0';
     signal rst      : STD_LOGIC := '1';
@@ -30,10 +38,11 @@ architecture Behavioral of spi_adc_testbench is
     signal stop     : STD_LOGIC := '0';
     signal sclk     : STD_LOGIC;
     signal cs       : STD_LOGIC;
-    signal mosi1    : STD_LOGIC;
-    signal mosi2    : STD_LOGIC;
+    signal mosi1    : STD_LOGIC := '0';
+    signal mosi2    : STD_LOGIC := '0';
     signal miso     : STD_LOGIC := '0';
     signal data_out : STD_LOGIC_VECTOR(31 downto 0);
+    signal seg_data : STD_LOGIC_VECTOR(6 downto 0);
 
 begin
     -- Instantiate the Unit Under Test (UUT)
@@ -49,6 +58,13 @@ begin
             mosi2 => mosi2,
             miso => miso,
             data_out => data_out
+        );
+
+    -- Instantiate 7-segment decoder
+    seg_decoder: seven_segment_decoder
+        Port map (
+            bin_in => data_out(3 downto 0),
+            seg_out => seg_data
         );
 
     -- Clock generation
@@ -72,20 +88,22 @@ begin
         
         -- Start conversion
         start <= '1';
-        wait for 320 ns;
+        wait for 160 ns;
         start <= '0';
+
+        -- Simulate MISO data reception
+        wait for 40 ns;
+        miso <= '1';
+        wait for 20 ns;
+        miso <= '0';
+        wait for 40 ns;
+        miso <= '1';
 
         -- Stop conversion
         wait for 200 ns;
         stop <= '1';
         wait for 40 ns;
         stop <= '0';
-
-        -- MISO signal simulation (example)
-        wait for 100 ns;
-        miso <= '1';
-        wait for 20 ns;
-        miso <= '0';
 
         -- End simulation
         wait;
