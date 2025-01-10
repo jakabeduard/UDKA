@@ -13,6 +13,7 @@ A lézeres távolságmérő szenzorok analóg jelei az ADC-n keresztül kerülne
 Az ajtón elhelyezett két szenzor különböző pozíciókat érzékel, ami nem is annyira  fontos, esetunkben csak az számit, hogy melyik mér előbb. 
 •	Időben ha az első  aztán a második szenzor mér változást:  belépő személyek számára ad információt.
 •	Míg időben a második aztán  az első  szenzor mér változást:  a kilépő személyek számáról vonatkozoan  ad információt.
+![image](https://github.com/user-attachments/assets/702fe893-97e9-478c-aa8e-a4d24a03e3e2)
 
   
 Az FPGA az érzékelt irányok alapján vezérli egy inkrementális számláló működését. Ha egy személy belép, a számláló értéke növekszik, míg ha kilép, a számláló értéke csökken.
@@ -43,11 +44,26 @@ II. Gyakorlati megvalósítás:
 1. Hardver kapcsolás:
 
    
+   ![image](https://github.com/user-attachments/assets/d5dfecfa-2489-4aaa-adc1-f101a48507b1)
+   ![image](https://github.com/user-attachments/assets/7a726413-1dd4-464f-8db4-29881ec60a22)
+
+
+
+   
 
  
  
-Szenzor 1, 2
-2. SPI protokol tervezés:
+
+3. SPI protokol tervezés:
+   ![WhatsApp Image 2025-01-09 at 06 53 25_7d1adc69](https://github.com/user-attachments/assets/85fab6c4-6a27-40ab-9b1a-77f290efb599)
+   ![image](https://github.com/user-attachments/assets/728dbef4-0043-4920-ba7b-cdf906bd062f)
+   ![image](https://github.com/user-attachments/assets/021962a2-dde8-429c-a1a6-d1e3b5e2b2e8)
+   ![image](https://github.com/user-attachments/assets/b31b10da-3c22-4a7a-a2b0-6c4ad56a226c)
+   ![image](https://github.com/user-attachments/assets/7ac7629b-fbc3-41e4-bd0a-14a47494a64a)
+
+
+
+
  
 
  
@@ -57,7 +73,9 @@ Szenzor 1, 2
 2. SPI protokol megvalósítása és tesztelése  :
  
 
-
+![image](https://github.com/user-attachments/assets/196fa556-78c7-469c-aa83-482e6454f3d0)
+![image](https://github.com/user-attachments/assets/3059fb41-1b78-4b69-9cd3-fbad21bc4e36)
+![image](https://github.com/user-attachments/assets/5f00e2d3-1501-4159-a4c0-9d17a108f869)
 
 
  
