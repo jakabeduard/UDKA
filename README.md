@@ -75,7 +75,8 @@ II. Gyakorlati megvalósítás:
 
 ![image](https://github.com/user-attachments/assets/196fa556-78c7-469c-aa83-482e6454f3d0)
 ![image](https://github.com/user-attachments/assets/3059fb41-1b78-4b69-9cd3-fbad21bc4e36)
-![image](https://github.com/user-attachments/assets/5f00e2d3-1501-4159-a4c0-9d17a108f869)
+![image](https://github.com/user-attachments/assets/2f852c95-2b9e-4f83-988e-bbe6b07e8131)
+
 
 
  
